@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>สมัครเรียน | โรงเรียนจุ๋งฮัวโซะเซียว</title>
+  <meta name="description" content="ขั้นตอนการสมัครเรียน คุณสมบัติผู้สมัคร กำหนดการรับสมัคร และแบบฟอร์มสมัครเรียนออนไลน์ โรงเรียนจุ๋งฮัวโซะเซียว" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="โรงเรียนจุ๋งฮัวโซะเซียว (JHS)" />
+  <meta property="og:title" content="สมัครเรียน | โรงเรียนจุ๋งฮัวโซะเซียว" />
+  <meta property="og:description" content="ขั้นตอนการสมัครเรียน คุณสมบัติผู้สมัคร กำหนดการรับสมัคร และแบบฟอร์มสมัครเรียนออนไลน์ โรงเรียนจุ๋งฮัวโซะเซียว" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* STEPS */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0;
+      position: relative;
+      counter-reset: step;
+    }
+    .steps-grid::before {
+      content: '';
+      position: absolute;
+      top: 36px;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      z-index: 0;
+    }
+    .step-card {
+      text-align: center;
+      padding: 0 20px 32px;
+      position: relative;
+      z-index: 1;
+    }
+    .step-num {
+      width: 72px;
+      height: 72px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 900;
+      margin: 0 auto 20px;
+      border: 4px solid #fff;
+      box-shadow: var(--shadow);
+      counter-increment: step;
+    }
+    .step-title {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+    .step-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* DATES TABLE */
+    .dates-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+    .dates-table th {
+      background: var(--primary);
+      color: #fff;
+      padding: 14px 20px;
+      text-align: left;
+      font-weight: 700;
+    }
+    .dates-table th:first-child { border-radius: 10px 0 0 0; }
+    .dates-table th:last-child  { border-radius: 0 10px 0 0; }
+    .dates-table td {
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-dark);
+    }
+    .dates-table tr:last-child td { border-bottom: none; }
+    .dates-table tr:nth-child(even) td { background: var(--bg-light); }
+    .dates-table .badge {
+      display: inline-block;
+      padding: 3px 12px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+    .badge-open   { background: rgba(34,197,94,0.12); color: #16a34a; }
+    .badge-soon   { background: rgba(234,179,8,0.15);  color: #b45309; }
+    .badge-closed { background: rgba(239,68,68,0.1);   color: #dc2626; }
+
+    /* REQUIREMENTS */
+    .req-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .req-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    .req-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+    .req-card-head {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: #fff;
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .req-card-head .icon { font-size: 1.6rem; }
+    .req-card-head .level { font-size: 1rem; font-weight: 800; }
+    .req-card-head .age   { font-size: 0.82rem; opacity: 0.75; margin-top: 2px; }
+    .req-card-body { padding: 24px; }
+    .req-list { display: flex; flex-direction: column; gap: 10px; }
+    .req-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .req-list li::before {
+      content: '✓';
+      background: rgba(26,58,107,0.1);
+      color: var(--primary);
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      font-weight: 900;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* FORM */
+    .adm-form-wrap {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+    }
+    .adm-form-wrap h3 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+    .adm-form-wrap > p {
+      color: var(--text-muted);
+      margin-bottom: 36px;
+    }
+    .form-section-title {
+      font-size: 0.85rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--accent);
+      margin: 28px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid rgba(200,168,75,0.2);
+    }
+    .form-row-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+    }
+    .form-error {
+      font-size: 0.82rem;
+      color: #dc2626;
+      margin-top: 5px;
+      display: none;
+    }
+    .form-input.error { border-color: #dc2626; }
+    .form-input.error + .form-error { display: block; }
+    @media (max-width: 768px) {
+      .adm-form-wrap { padding: 28px 20px; }
+      .form-row-3 { grid-template-columns: 1fr; }
+      .steps-grid::before { display: none; }
+    }
+    @media (max-width: 600px) {
+      .steps-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PROGRESS BAR -->
+  <div id="progressBar"></div>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="container">
+      <nav class="nav" aria-label="เมนูหลัก">
+        <a href="index.html" class="logo">
+          <div class="logo-icon">จ</div>
+          <div class="logo-text">
+            <span class="logo-name">จุ๋งฮัวโซะเซียว</span>
+            <span class="logo-sub">JUNGHUASAOSIEO SCHOOL</span>
+          </div>
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html">หน้าหลัก</a></li>
+          <li><a href="about.html">เกี่ยวกับเรา</a></li>
+          <li><a href="programs.html">หลักสูตร</a></li>
+          <li><a href="news.html">ข่าวสาร</a></li>
+          <li><a href="contact.html">ติดต่อเรา</a></li>
+          <li><a href="gallery.html">แกลเลอรี</a></li>
+          <li><a href="admissions.html" class="nav-cta active">สมัครเรียน</a></li>
+        </ul>
+        <button class="hamburger" aria-label="เมนู">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MOBILE NAV -->
+  <div class="mobile-nav" role="navigation" aria-label="เมนูมือถือ">
+    <a href="index.html">หน้าหลัก</a>
+    <a href="about.html">เกี่ยวกับเรา</a>
+    <a href="programs.html">หลักสูตร</a>
+    <a href="news.html">ข่าวสาร</a>
+    <a href="contact.html">ติดต่อเรา</a>
+    <a href="gallery.html">แกลเลอรี</a>
+    <a href="admissions.html" class="mobile-cta active">สมัครเรียน</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="container">
+      <h1>สมัครเรียน</h1>
+      <p>เริ่มต้นการเดินทางสู่ความเป็นเลิศกับโรงเรียนจุ๋งฮัวโซะเซียว</p>
+      <div class="breadcrumb">
+        <a href="index.html">หน้าหลัก</a>
+        <span>›</span>
+        <span>สมัครเรียน</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEPS -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-tag">ขั้นตอนการสมัคร</span>
+        <h2 class="section-title">สมัครเรียนง่าย ๆ ใน 5 ขั้นตอน</h2>
+        <p class="section-desc">เราออกแบบกระบวนการสมัครให้สะดวกและรวดเร็ว</p>
+      </div>
+      <div class="steps-grid fade-in">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <div class="step-title">กรอกแบบฟอร์ม</div>
+          <p class="step-desc">กรอกข้อมูลผู้สมัครในแบบฟอร์มออนไลน์ด้านล่าง หรือรับเอกสารสมัครที่โรงเรียน</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <div class="step-title">ยื่นเอกสาร</div>
+          <p class="step-desc">ส่งเอกสารประกอบการสมัครทั้งหมดที่ฝ่ายรับสมัครของโรงเรียน</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <div class="step-title">สอบคัดเลือก</div>
+          <p class="step-desc">นักเรียนเข้าสอบข้อเขียนและสัมภาษณ์ตามกำหนดการที่แจ้ง</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">4</div>
+          <div class="step-title">ประกาศผล</div>
+          <p class="step-desc">ประกาศผลการสอบคัดเลือกทางเว็บไซต์และโทรศัพท์แจ้งผู้ปกครอง</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">5</div>
+          <div class="step-title">ลงทะเบียน</div>
+          <p class="step-desc">ชำระค่าธรรมเนียมและรายงานตัวเพื่อเริ่มต้นเป็นส่วนหนึ่งของโรงเรียน</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPORTANT DATES -->
+  <section class="section" style="background:var(--bg-light);">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-tag">กำหนดการ</span>
+        <h2 class="section-title">ปฏิทินการรับสมัคร ปีการศึกษา 2568</h2>
+        <p class="section-desc">ติดตามกำหนดการสำคัญไม่ให้พลาด</p>
+      </div>
+      <div class="fade-in" style="border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow);">
+        <div style="overflow-x:auto;">
+        <table class="dates-table">
+          <thead>
+            <tr>
+              <th>กิจกรรม</th>
+              <th>ช่วงเวลา</th>
+              <th>ระดับชั้น</th>
+              <th>สถานะ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>เปิดรับสมัครนักเรียนใหม่</strong></td>
+              <td>2 ม.ค. – 31 มี.ค. 2568</td>
+              <td>ป.1 – ม.6</td>
+              <td><span class="badge badge-open">เปิดรับสมัคร</span></td>
+            </tr>
+            <tr>
+              <td><strong>สอบคัดเลือก (รอบที่ 1)</strong></td>
+              <td>15 ก.พ. 2568</td>
+              <td>ป.1 – ม.6</td>
+              <td><span class="badge badge-closed">ปิดแล้ว</span></td>
+            </tr>
+            <tr>
+              <td><strong>สอบคัดเลือก (รอบที่ 2)</strong></td>
+              <td>22 มี.ค. 2568</td>
+              <td>ป.1 – ม.6</td>
+              <td><span class="badge badge-soon">เร็ว ๆ นี้</span></td>
+            </tr>
+            <tr>
+              <td><strong>ประกาศผลการคัดเลือก</strong></td>
+              <td>31 มี.ค. 2568</td>
+              <td>ทุกระดับ</td>
+              <td><span class="badge badge-soon">เร็ว ๆ นี้</span></td>
+            </tr>
+            <tr>
+              <td><strong>รายงานตัวและชำระค่าธรรมเนียม</strong></td>
+              <td>1 – 30 เม.ย. 2568</td>
+              <td>ทุกระดับ</td>
+              <td><span class="badge badge-soon">เร็ว ๆ นี้</span></td>
+            </tr>
+            <tr>
+              <td><strong>เปิดภาคเรียนที่ 1</strong></td>
+              <td>16 พ.ค. 2568</td>
+              <td>ทุกระดับ</td>
+              <td><span class="badge badge-soon">เร็ว ๆ นี้</span></td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REQUIREMENTS -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-tag">คุณสมบัติ & เอกสาร</span>
+        <h2 class="section-title">เอกสารประกอบการสมัคร</h2>
+        <p class="section-desc">เตรียมเอกสารให้ครบถ้วนก่อนมาสมัครที่โรงเรียน</p>
+      </div>
+      <div class="req-grid">
+
+        <div class="req-card fade-in">
+          <div class="req-card-head">
+            <div class="icon">📖</div>
+            <div>
+              <div class="level">ระดับประถมศึกษา</div>
+              <div class="age">ป.1–ป.6</div>
+            </div>
+          </div>
+          <div class="req-card-body">
+            <ul class="req-list">
+              <li>สูติบัตร (ฉบับจริงพร้อมสำเนา 2 ชุด)</li>
+              <li>สำเนาทะเบียนบ้านของเด็กและผู้ปกครอง</li>
+              <li>ปพ.1 หรือระเบียนแสดงผลการเรียน</li>
+              <li>รูปถ่ายนักเรียน 1 นิ้ว จำนวน 3 รูป</li>
+              <li>สำเนาบัตรประชาชนผู้ปกครอง</li>
+              <li>หนังสือรับรองจากโรงเรียนเดิม (ถ้ามี)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="req-card fade-in">
+          <div class="req-card-head">
+            <div class="icon">🎓</div>
+            <div>
+              <div class="level">ระดับมัธยมศึกษา</div>
+              <div class="age">ม.1–ม.6</div>
+            </div>
+          </div>
+          <div class="req-card-body">
+            <ul class="req-list">
+              <li>สูติบัตร (ฉบับจริงพร้อมสำเนา 2 ชุด)</li>
+              <li>สำเนาทะเบียนบ้านของเด็กและผู้ปกครอง</li>
+              <li>ปพ.1 ระดับประถม/มัธยม (แล้วแต่กรณี)</li>
+              <li>รูปถ่ายนักเรียน 1½ นิ้ว จำนวน 4 รูป</li>
+              <li>สำเนาบัตรประชาชนนักเรียนและผู้ปกครอง</li>
+              <li>วุฒิการศึกษาระดับก่อนหน้า</li>
+              <li>หนังสือรับรองความประพฤติจากโรงเรียนเดิม</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- APPLICATION FORM -->
+  <section class="section" style="background:var(--bg-light);">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-tag">แบบฟอร์มออนไลน์</span>
+        <h2 class="section-title">สมัครเรียนออนไลน์</h2>
+        <p class="section-desc">กรอกข้อมูลเบื้องต้น เราจะติดต่อกลับเพื่อนัดหมายขั้นตอนต่อไป</p>
+      </div>
+      <div class="adm-form-wrap fade-in">
+        <h3>แบบฟอร์มสมัครเรียน ปีการศึกษา 2568</h3>
+        <p>กรุณากรอกข้อมูลให้ครบถ้วนและถูกต้อง เจ้าหน้าที่จะติดต่อยืนยันภายใน 1–2 วันทำการ</p>
+
+        <form id="admForm" novalidate>
+
+          <div class="form-section-title">ข้อมูลนักเรียน</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="adm-fname">ชื่อ (นักเรียน) *</label>
+              <input type="text" id="adm-fname" class="form-input" placeholder="ชื่อ" required />
+              <div class="form-error">กรุณากรอกชื่อ</div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="adm-lname">นามสกุล (นักเรียน) *</label>
+              <input type="text" id="adm-lname" class="form-input" placeholder="นามสกุล" required />
+              <div class="form-error">กรุณากรอกนามสกุล</div>
+            </div>
+          </div>
+
+          <div class="form-row-3">
+            <div class="form-group">
+              <label class="form-label" for="adm-dob">วันเกิด *</label>
+              <input type="date" id="adm-dob" class="form-input" required />
+              <div class="form-error">กรุณาระบุวันเกิด</div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="adm-gender">เพศ *</label>
+              <select id="adm-gender" class="form-input" required>
+                <option value="" disabled selected>-- เลือก --</option>
+                <option value="male">ชาย</option>
+                <option value="female">หญิง</option>
+              </select>
+              <div class="form-error">กรุณาเลือกเพศ</div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="adm-nationality">สัญชาติ *</label>
+              <input type="text" id="adm-nationality" class="form-input" placeholder="ไทย" value="ไทย" required />
+              <div class="form-error">กรุณาระบุสัญชาติ</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="adm-level">ระดับชั้นที่สมัคร *</label>
+            <select id="adm-level" class="form-input" required>
+              <option value="" disabled selected>-- เลือกระดับชั้น --</option>
+              <optgroup label="ระดับประถมศึกษา">
+                <option value="p1">ประถมศึกษาปีที่ 1</option>
+                <option value="p2">ประถมศึกษาปีที่ 2</option>
+                <option value="p3">ประถมศึกษาปีที่ 3</option>
+                <option value="p4">ประถมศึกษาปีที่ 4</option>
+                <option value="p5">ประถมศึกษาปีที่ 5</option>
+                <option value="p6">ประถมศึกษาปีที่ 6</option>
+              </optgroup>
+              <optgroup label="ระดับมัธยมศึกษา">
+                <option value="m1">มัธยมศึกษาปีที่ 1</option>
+                <option value="m2">มัธยมศึกษาปีที่ 2</option>
+                <option value="m3">มัธยมศึกษาปีที่ 3</option>
+                <option value="m4">มัธยมศึกษาปีที่ 4</option>
+                <option value="m5">มัธยมศึกษาปีที่ 5</option>
+                <option value="m6">มัธยมศึกษาปีที่ 6</option>
+              </optgroup>
+            </select>
+            <div class="form-error">กรุณาเลือกระดับชั้น</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="adm-prev-school">โรงเรียนเดิม (ถ้ามี)</label>
+            <input type="text" id="adm-prev-school" class="form-input" placeholder="ชื่อโรงเรียนเดิม" />
+          </div>
+
+          <div class="form-section-title">ข้อมูลผู้ปกครอง</div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="adm-parent-name">ชื่อ-นามสกุล ผู้ปกครอง *</label>
+              <input type="text" id="adm-parent-name" class="form-input" placeholder="ชื่อ-นามสกุล" required />
+              <div class="form-error">กรุณากรอกชื่อผู้ปกครอง</div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="adm-relation">ความสัมพันธ์ *</label>
+              <select id="adm-relation" class="form-input" required>
+                <option value="" disabled selected>-- เลือก --</option>
+                <option value="father">บิดา</option>
+                <option value="mother">มารดา</option>
+                <option value="guardian">ผู้ปกครองตามกฎหมาย</option>
+                <option value="other">อื่น ๆ</option>
+              </select>
+              <div class="form-error">กรุณาเลือกความสัมพันธ์</div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="adm-phone">เบอร์โทรศัพท์ *</label>
+              <input type="tel" id="adm-phone" class="form-input" placeholder="08x-xxx-xxxx" required />
+              <div class="form-error">กรุณากรอกเบอร์โทรศัพท์</div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="adm-email">อีเมล *</label>
+              <input type="email" id="adm-email" class="form-input" placeholder="email@example.com" required />
+              <div class="form-error">กรุณากรอกอีเมลให้ถูกต้อง</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="adm-address">ที่อยู่ปัจจุบัน *</label>
+            <textarea id="adm-address" class="form-input" placeholder="บ้านเลขที่ ซอย ถนน แขวง/ตำบล เขต/อำเภอ จังหวัด รหัสไปรษณีย์" required style="min-height:80px;"></textarea>
+            <div class="form-error">กรุณากรอกที่อยู่</div>
+          </div>
+
+          <div class="form-section-title">ข้อมูลเพิ่มเติม</div>
+          <div class="form-group">
+            <label class="form-label" for="adm-english">ระดับภาษาอังกฤษของนักเรียน</label>
+            <select id="adm-english" class="form-input">
+              <option value="" disabled selected>-- เลือก --</option>
+              <option value="none">ไม่มีพื้นฐาน</option>
+              <option value="basic">พื้นฐาน</option>
+              <option value="intermediate">ปานกลาง</option>
+              <option value="advanced">ดี</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="adm-source">ทราบข้อมูลโรงเรียนจากช่องทางใด</label>
+            <select id="adm-source" class="form-input">
+              <option value="" disabled selected>-- เลือก --</option>
+              <option value="friend">เพื่อน/ครอบครัวแนะนำ</option>
+              <option value="facebook">Facebook</option>
+              <option value="google">Google Search</option>
+              <option value="line">Line</option>
+              <option value="banner">ป้ายโฆษณา</option>
+              <option value="other">อื่น ๆ</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="adm-note">ข้อมูลพิเศษหรือความต้องการเฉพาะ</label>
+            <textarea id="adm-note" class="form-input" placeholder="เช่น โรคประจำตัว ความต้องการพิเศษ หรือข้อมูลอื่น ๆ ที่ต้องการแจ้งโรงเรียน" style="min-height:90px;"></textarea>
+          </div>
+
+          <button type="submit" class="form-submit" style="margin-top:8px;">
+            ส่งใบสมัคร <span>→</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <div class="logo-icon">จ</div>
+            <div class="logo-text">
+              <span class="logo-name">จุ๋งฮัวโซะเซียว</span>
+              <span class="logo-sub">JUNGHUASAOSIEO SCHOOL</span>
+            </div>
+          </a>
+          <p>มุ่งพัฒนาผู้เรียนให้มีความรู้คู่คุณธรรม มีทักษะภาษาจีน–ไทย พร้อมก้าวสู่ความเป็นเลิศในศตวรรษที่ 21</p>
+          <div class="social-links" style="margin-top:20px;">
+            <a href="https://www.facebook.com/JunghuaSoasieo/" title="Facebook" target="_blank" rel="noopener">f</a>
+            <a href="#" title="Line">L</a>
+            <a href="#" title="YouTube">▶</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-heading">เมนูหลัก</div>
+          <ul class="footer-links">
+            <li><a href="index.html">หน้าหลัก</a></li>
+            <li><a href="about.html">เกี่ยวกับเรา</a></li>
+            <li><a href="programs.html">หลักสูตร</a></li>
+            <li><a href="news.html">ข่าวสาร</a></li>
+            <li><a href="contact.html">ติดต่อเรา</a></li>
+            <li><a href="gallery.html">แกลเลอรี</a></li>
+            <li><a href="admissions.html">สมัครเรียน</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">หลักสูตร</div>
+          <ul class="footer-links">
+            <li><a href="programs.html">ระดับประถมศึกษา</a></li>
+            <li><a href="programs.html">ระดับมัธยมศึกษาตอนต้น</a></li>
+            <li><a href="programs.html">แผนศิลป์-ภาษา</a></li>
+            <li><a href="programs.html">แผนวิท-คณิต</a></li>
+            <li><a href="programs.html">กิจกรรมพิเศษ</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">ติดต่อเรา</div>
+          <div class="footer-contact-item">
+            <span class="icon">📍</span>
+            <span>114 ถนนสถลสถานพิทักษ์ ต.กันตัง อ.กันตัง จ.ตรัง 92110</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="icon">📞</span>
+            <span>075-251-301</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="icon">✉️</span>
+            <span>info@jhs.ac.th</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="icon">⏰</span>
+            <span>จันทร์–ศุกร์ 08:00–16:30 น.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;width:100%;">
+        <span>© 2568 โรงเรียนจุ๋งฮัวโซะเซียว · สงวนลิขสิทธิ์ทุกประการ</span>
+        <span>ออกแบบและพัฒนาเพื่อการศึกษา</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- TOAST -->
+  <div class="toast" id="admToast">✓ ส่งใบสมัครเรียบร้อยแล้ว เราจะติดต่อกลับโดยเร็ว!</div>
+
+  <button class="scroll-top" aria-label="กลับด้านบน">↑</button>
+  <script src="js/main.js"></script>
+  <script>
+    // Admissions form with validation
+    const admForm = document.getElementById('admForm');
+    const admToast = document.getElementById('admToast');
+
+    admForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      let valid = true;
+
+      admForm.querySelectorAll('[required]').forEach(field => {
+        field.classList.remove('error');
+        if (!field.value.trim()) {
+          field.classList.add('error');
+          valid = false;
+        }
+        if (field.type === 'email' && field.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value)) {
+          field.classList.add('error');
+          valid = false;
+        }
+      });
+
+      if (!valid) {
+        admForm.querySelector('.error')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      const btn = admForm.querySelector('.form-submit');
+      btn.textContent = 'กำลังส่ง...';
+      btn.disabled = true;
+
+      setTimeout(() => {
+        admForm.reset();
+        btn.innerHTML = '✓ ส่งใบสมัครเรียบร้อยแล้ว';
+        admToast.classList.add('show');
+        setTimeout(() => admToast.classList.remove('show'), 5000);
+        setTimeout(() => {
+          btn.innerHTML = 'ส่งใบสมัคร <span>→</span>';
+          btn.disabled = false;
+        }, 3500);
+      }, 1400);
+    });
+
+    // Remove error on input
+    admForm.querySelectorAll('.form-input').forEach(field => {
+      field.addEventListener('input', () => field.classList.remove('error'));
+    });
+  </script>
+</body>
+</html>

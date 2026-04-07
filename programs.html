@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>หลักสูตรการศึกษา | โรงเรียนจุ๋งฮัวโซะเซียว</title>
+  <meta name="description" content="หลักสูตรการศึกษาของโรงเรียนจุ๋งฮัวโซะเซียว ระดับประถมศึกษา มัธยมศึกษา แผนการเรียนศิลป์-ภาษา และกิจกรรมเสริมหลักสูตร" />
+  <meta name="keywords" content="หลักสูตรโรงเรียนจุ๋งฮัวโซะเซียว, เรียนภาษาจีน, แผนการเรียนศิลป์-ภาษา, กิจกรรมเสริมหลักสูตร" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="โรงเรียนจุ๋งฮัวโซะเซียว (JHS)" />
+  <meta property="og:title" content="หลักสูตรการศึกษา | โรงเรียนจุ๋งฮัวโซะเซียว" />
+  <meta property="og:description" content="หลักสูตรการศึกษาของโรงเรียนจุ๋งฮัวโซะเซียว" />
+  <meta property="og:url" content="https://www.jhs.ac.th/programs.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- SCROLL PROGRESS BAR -->
+  <div id="progressBar"></div>
+
+  <!-- HEADER -->
+  <header class="header" id="header">
+    <div class="container">
+      <nav class="nav" aria-label="เมนูหลัก">
+        <a href="index.html" class="logo">
+          <div class="logo-icon">จ</div>
+          <div class="logo-text">
+            <span class="logo-name">จุ๋งฮัวโซะเซียว</span>
+            <span class="logo-sub">JUNGHUASAOSIEO SCHOOL</span>
+          </div>
+        </a>
+        <ul class="nav-links">
+          <li><a href="index.html">หน้าหลัก</a></li>
+          <li><a href="about.html">เกี่ยวกับเรา</a></li>
+          <li><a href="programs.html" class="active">หลักสูตร</a></li>
+          <li><a href="news.html">ข่าวสาร</a></li>
+          <li><a href="contact.html">ติดต่อเรา</a></li>
+          <li><a href="gallery.html">แกลเลอรี</a></li>
+          <li><a href="admissions.html" class="nav-cta">สมัครเรียน</a></li>
+        </ul>
+        <button class="hamburger" aria-label="เมนู">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MOBILE NAV -->
+  <div class="mobile-nav">
+    <a href="index.html">หน้าหลัก</a>
+    <a href="about.html">เกี่ยวกับเรา</a>
+    <a href="programs.html" class="active">หลักสูตร</a>
+    <a href="news.html">ข่าวสาร</a>
+    <a href="contact.html">ติดต่อเรา</a>
+    <a href="gallery.html">แกลเลอรี</a>
+    <a href="admissions.html" class="mobile-cta">สมัครเรียน</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <h1>หลักสูตรการศึกษา</h1>
+      <p>หลักสูตรที่ออกแบบเพื่อพัฒนาศักยภาพผู้เรียนอย่างรอบด้าน</p>
+      <div class="breadcrumb">
+        <a href="index.html">หน้าหลัก</a> &gt; <span>หลักสูตรการศึกษา</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAM FILTER -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">เลือกดูหลักสูตร</span>
+        <h2 class="section-title">หลักสูตรของเรา</h2>
+        <p class="section-desc">โรงเรียนจุ๋งฮัวโซะเซียวมีหลักสูตรที่หลากหลายเหมาะสมกับความต้องการของผู้เรียนในทุกช่วงวัย</p>
+      </div>
+      
+      <div class="program-filter">
+        <button class="filter-btn active" data-filter="all">ทั้งหมด</button>
+        <button class="filter-btn" data-filter="primary">ประถมศึกษา</button>
+        <button class="filter-btn" data-filter="secondary">มัธยมศึกษา</button>
+        <button class="filter-btn" data-filter="language">ภาษาจีน</button>
+        <button class="filter-btn" data-filter="activity">กิจกรรมเสริม</button>
+      </div>
+
+      <div class="programs-grid">
+        <!-- ประถมศึกษา -->
+        <div class="program-card" data-category="primary">
+          <div class="program-card-header">
+            <div class="program-icon blue">👦</div>
+            <div>
+              <div class="program-card-title">ระดับประถมศึกษา (ป.1-ป.6)</div>
+              <span class="program-card-level">พื้นฐานสำคัญ</span>
+            </div>
+          </div>
+          <div class="program-card-body">
+            <p class="program-card-desc">สร้างรากฐานความรู้ที่มั่นคง ควบคู่กับการพัฒนาทักษะชีวิตและคุณธรรมจริยธรรม เน้นการเรียนรู้ผ่านกิจกรรมที่สนุกสนานและเหมาะสมกับวัย</p>
+            <div class="program-meta">
+              <div class="program-meta-item">
+                <span class="dot"></span>
+                <span>อายุ 6-12 ปี</span>
+              </div>
+              <div class="program-meta-item">
+                <span class="dot"></span>
+                <span>8 กลุ่มสาระการเรียนรู้</span>
+              </div>
+              <div class="program-meta-item">
+                <span class="dot"></span>
+                <span>ภาษาจีนพื้นฐาน</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- มัธยมต้น -->
+        <div class="program-card" data-category="secondary">
+          <div class="program-card-header">
+            <div class="program-icon gold">👨‍🎓</div>
+            <div>
+              <div class="program-card-title">ระดับมัธยมศึกษาตอนต้น (ม.1-ม.3)</div>
+              <span class="program-card-level">พัฒนาทักษะ</span>
+            </div>
+          </div>
+          <div class="program-card-body">
+            <p class="program-card-desc">พัฒนาความรู้และทักษะที่จำเป็นสำหรับการศึกษาต่อในระดับสูง เน้นการคิดวิเคราะห์ การแก้ปัญหา และการทำงานเป็นทีม</p>
+            <div class="program-meta">
+              <div class="program-meta-item">
+                <span class="dot"></span>
+                <span>อายุ 12-15 ปี</span>
+              </div>
+              <div class="program-meta-item">
+                <span class="dot"></span>
+                <span>ภาษาต่างประเทศ</span>
+              </div>
+              <div class="program-meta-item">
+                <span class="dot"></span>
+                <span>STEM Education</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- มัธยมปลาย ศิลป์-ภาษา -->
+        <div class="program-card" data-category="secondary language">
+          <div class="program-card-header">
+            <div class="program-icon green">🎨</div>
+            <div>
+              <div class="program-card-title">ระดับมัธยมศึกษาตอนปลาย (ม.4-ม.6)</div>
+              <span class="program-card-level">แผนการเรียนศิลป์-ภาษา</span>
+            </div>
+          </div>
+          <div class="program-card-body">
+            <p class="program-card-desc">แผนการเรียนศิลป์-ภาษา เตรียมความพร้อมสู่การศึกษาระดับอุดมศึกษาและอาชีพ เน้นทักษะภาษาต่างประเทศ ศิลปะ และทักษะการคิดวิเคราะห์</p>
+            <div class="program-meta">
+              <div class="program-meta-item">
+                <span class="dot"></span>
+                <span>อายุ 15-18 ปี</span>
+              </div>
+              <div class="program-meta-item">
+                <span class="dot"></span>
+                <span>ภาษาต่างประเทศ</span>
+              </div>
+              <div class="program-meta-item">
+                <span class="dot"></span>
+                <span>ทักษะการสื่อสาร</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- กิจกรรมภาษาต่างประเทศ -->
+        <div class="program-card" data-category="language">
+          <div class="program-card-header">
+            <div class="program-icon purple">🌐</div>
+            <div>
+              <div class="program-card-title">กิจกรรมภาษาต่างประเทศ</div>
+              <span class="program-card-level">เสริมทักษะการสื่อสาร</span>
+            </div>
+          </div>
+          <div class="program-card-body">
+            <p class="program-card-desc">กิจกรรมเสริมทักษะภาษาต่างประเทศสำหรับนักเรียนทุกระดับชั้น เน้นทักษะการฟัง พูด อ่าน เขียน เพื่อเตรียมพร้อมสู่สังคมสากล</p>
+            <div class="program-meta">
+              <div class="program-meta-item">
+                <span class="dot"></span>
+                <span>ทุกระดับชั้น</span>
+              </div>
+              <div class="program-meta-item">
+                <span class="dot"></span>
+                <span>ภาษาอังกฤษ</span>
+              </div>
+              <div class="program-meta-item">
+                <span class="dot"></span>
+                <span>ทักษะการสื่อสาร</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- กิจกรรมเสริมหลักสูตร -->
+        <div class="program-card" data-category="activity">
+          <div class="program-card-header">
+            <div class="program-icon red">⚽</div>
+            <div>
+              <div class="program-card-title">กิจกรรมเสริมหลักสูตร</div>
+              <span class="program-card-level">พัฒนาศักยภาพรอบด้าน</span>
+            </div>
+          </div>
+          <div class="program-card-body">
+            <p class="program-card-desc">กิจกรรมที่หลากหลายเพื่อพัฒนาศักยภาพของผู้เรียนอย่างรอบด้าน ทั้งด้านศิลปะ ดนตรี กีฬา วิทยาศาสตร์ และทักษะชีวิต</p>
+            <div class="program-meta">
+              <div class="program-meta-item">
+                <span class="dot"></span>
+                <span>ชมรมดนตรี/ศิลปะ</span>
+              </div>
+              <div class="program-meta-item">
+                <span class="dot"></span>
+                <span>กิจกรรมลูกเสือ</span>
+              </div>
+              <div class="program-meta-item">
+                <span class="dot"></span>
+                <span>STEM/Robotics</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- กิจกรรมพัฒนาผู้เรียน -->
+        <div class="program-card" data-category="activity">
+          <div class="program-card-header">
+            <div class="program-icon teal">🌟</div>
+            <div>
+              <div class="program-card-title">กิจกรรมพัฒนาผู้เรียน</div>
+              <span class="program-card-level">เสริมสร้างประสบการณ์</span>
+            </div>
+          </div>
+          <div class="program-card-body">
+            <p class="program-card-desc">กิจกรรมที่ส่งเสริมการพัฒนาตนเอง การทำงานเป็นทีม และจิตสำนึกสาธารณะ ผ่านโครงการและกิจกรรมต่างๆ ตลอดปีการศึกษา</p>
+            <div class="program-meta">
+              <div class="program-meta-item">
+                <span class="dot"></span>
+                <span>สภานักเรียน</span>
+              </div>
+              <div class="program-meta-item">
+                <span class="dot"></span>
+                <span>กิจกรรมจิตอาสา</span>
+              </div>
+              <div class="program-meta-item">
+                <span class="dot"></span>
+                <span>ศึกษาดูงาน</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CURRICULUM HIGHLIGHTS -->
+  <section class="section" style="background:var(--bg-light);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">จุดเด่นหลักสูตร</span>
+        <h2 class="section-title">ทำไมต้องเรียนที่โรงเรียนจุ๋งฮัวโซะเซียว</h2>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">📚</div>
+          <div class="feature-title">หลักสูตรได้มาตรฐาน</div>
+          <p class="feature-text">หลักสูตรที่ครอบคลุมตั้งแต่ระดับประถมถึงมัธยมปลาย พัฒนาผู้เรียนให้มีความรู้คู่คุณธรรมบนพื้นฐานภูมิปัญญาไทย</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">👨‍🏫</div>
+          <div class="feature-title">ครูผู้เชี่ยวชาญ</div>
+          <p class="feature-text">คณาจารย์ที่มีคุณวุฒิและประสบการณ์สูง ทั้งครูชาวไทยและครูชาวจีนที่ผ่านการรับรองมาตรฐาน</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔬</div>
+          <div class="feature-title">STEM Education</div>
+          <p class="feature-text">การเรียนรู้วิทยาศาสตร์ เทคโนโลยี วิศวกรรม และคณิตศาสตร์ผ่านกิจกรรมเชิงปฏิบัติและโครงการจริง</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎭</div>
+          <div class="feature-title">กิจกรรมหลากหลาย</div>
+          <p class="feature-text">กิจกรรมพัฒนาผู้เรียนทั้งด้านศิลปะ ดนตรี กีฬา และการประกวดแข่งขันระดับชาติและนานาชาติ</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADMISSIONS CTA -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2 class="fade-in">สนใจสมัครเรียนหรือต้องการข้อมูลเพิ่มเติม?</h2>
+      <p class="fade-in">ติดต่อเราวันนี้เพื่อรับคำปรึกษาและข้อมูลเกี่ยวกับการสมัครเรียน</p>
+      <div class="cta-actions fade-in">
+        <a href="admissions.html" class="btn btn-primary">สมัครเรียนเลย</a>
+        <a href="contact.html" class="btn btn-outline">ติดต่อสอบถาม</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <div class="logo-icon">จ</div>
+            <div class="logo-text">
+              <span class="logo-name">จุ๋งฮัวโซะเซียว</span>
+              <span class="logo-sub">JUNGHUASAOSIEO SCHOOL</span>
+            </div>
+          </a>
+          <p>โรงเรียนจุ๋งฮัวโซะเซียว หนึ่งเดียวที่เราภูมิใจ 💙💛 มุ่งพัฒนาผู้เรียนให้มีความรู้คู่คุณธรรม มีทักษะภาษาจีน–ไทย พร้อมก้าวสู่ความเป็นเลิศในศตวรรษที่ 21</p>
+          <div class="social-links" style="margin-top:20px;">
+            <a href="https://www.facebook.com/JunghuaSoasieo/" title="Facebook" target="_blank" rel="noopener">f</a>
+            <a href="#" title="Line">L</a>
+            <a href="#" title="YouTube">▶</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-heading">เมนูหลัก</div>
+          <ul class="footer-links">
+            <li><a href="index.html">หน้าหลัก</a></li>
+            <li><a href="about.html">เกี่ยวกับเรา</a></li>
+            <li><a href="programs.html">หลักสูตร</a></li>
+            <li><a href="news.html">ข่าวสาร</a></li>
+            <li><a href="contact.html">ติดต่อเรา</a></li>
+            <li><a href="gallery.html">แกลเลอรี</a></li>
+            <li><a href="admissions.html">สมัครเรียน</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">หลักสูตร</div>
+          <ul class="footer-links">
+            <li><a href="programs.html">ระดับประถมศึกษา</a></li>
+            <li><a href="programs.html">ระดับมัธยมศึกษาตอนต้น</a></li>
+            <li
